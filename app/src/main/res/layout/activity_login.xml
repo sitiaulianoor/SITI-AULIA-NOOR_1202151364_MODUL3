@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="46dp"
     tools:context="com.example.awl.sitiaulianoor_1202151364_modul3.LoginActivity">
 
     <ImageView
@@ -37,6 +37,5 @@
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:textColor="#ffff"
-        android:onClick="showLogin"
-        />
+        android:onClick="showLogin"/>
 </LinearLayout>

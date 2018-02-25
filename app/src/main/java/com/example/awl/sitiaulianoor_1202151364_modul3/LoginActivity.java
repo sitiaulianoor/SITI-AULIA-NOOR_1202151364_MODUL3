@@ -17,18 +17,20 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        edUsername = findViewById(R.id.username);
-        edPassword = findViewById(R.id.password);
-        btnLogin = findViewById(R.id.signin);
-    }
 
-    public void showLogin(View view) {
-        if (edUsername.getText().toString().equalsIgnoreCase("EAD") && edPassword.getText().toString().equalsIgnoreCase("MOBILE")) {
-            Toast.makeText(this, "Welcome", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, "Incorrect Username or Password, Please try again", Toast.LENGTH_LONG).show();
+        edUsername = (EditText) findViewById(R.id.username);
+        edPassword = (EditText) findViewById(R.id.password);
+        btnLogin = (Button) findViewById(R.id.signin);
+        }
+
+
+        public void showLogin(View view) {
+            if (edUsername.getText().toString().equals("EAD") && edPassword.getText().toString().equals("MOBILE")){
+                Toast.makeText(this, "Welcome", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Username & Password Incorrect, Try Again!", Toast.LENGTH_LONG).show();
+            }
         }
     }
-}
