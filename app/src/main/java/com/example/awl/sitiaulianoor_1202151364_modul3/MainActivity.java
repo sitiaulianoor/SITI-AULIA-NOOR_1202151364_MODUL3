@@ -2,13 +2,15 @@ package com.example.awl.sitiaulianoor_1202151364_modul3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -26,26 +28,65 @@ public class MainActivity extends AppCompatActivity {
     private int[] gambar = {R.drawable.ades,R.drawable.amidis,R.drawable.aqua,R.drawable.cleo,R.drawable.club,R.drawable.equil,R.drawable.evian,
             R.drawable.leminerale,R.drawable.nestle,R.drawable.pristine,R.drawable.vit};
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        recyclerView = findViewById(R.id.rView);
+
+        //Get the appropriate column count
+        int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
+
+        //Set the Layout Manager
+        recyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
+
         Title = new ArrayList<>();
         Desc = new ArrayList<>();
         Gambar = new ArrayList<>();
 
-        recyclerView = findViewById(R.id.rView);
-
-        DaftarItem();
-        //Layout Manager, untuk membuat list secara vertical
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
+        //membuat layout menjadi vertikal
         adapter = new RecyclerAdapter(Title, Desc, Gambar);
         //Memasang Adapter pada RecyclerView
         recyclerView.setAdapter(adapter);
+        DaftarItem();
+
+        // If there is more than one column, disable swipe to dismiss
+        int swipeDirs;
+        if(gridColumnCount > 1){
+            swipeDirs = 0;
+        } else {
+            swipeDirs = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+        }
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback
+                (ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN
+                        | ItemTouchHelper.UP, swipeDirs) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                int from = viewHolder.getAdapterPosition();
+                int to = target.getAdapterPosition();
+
+                //Swap the items and notify the adapter
+                Collections.swap(Desc, from,to);
+                Collections.swap(Title,from,to);
+                Collections.swap(Gambar,from,to);
+                adapter.notifyItemMoved(from, to);
+                return true;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                Title.remove(viewHolder.getAdapterPosition());
+                Desc.remove(viewHolder.getAdapterPosition());
+                Gambar.remove(viewHolder.getAdapterPosition());
+                //Notify the adapter
+                adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+            }
+        });
+        helper.attachToRecyclerView(recyclerView);
+
+
+
     }
 
     private void DaftarItem() {

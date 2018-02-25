@@ -15,14 +15,14 @@ import java.util.ArrayList;
  * Created by Awl on 25/02/2018.
  */
 
-//Class Adapter ini Digunakan Untuk Mengatur Bagaimana Data akan Ditampilkan
+//view data
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    //digunakan untuk menerima dan menyimpan list item
+    //menerima & menyimpan data list
     private ArrayList<String> arrayListTitle, arrayListDesc;
     private ArrayList<Integer> arrayListGambar;
 
-    //Membuat Konstruktor pada Class RecyclerViewAdapter
+    //create kontruksi RV
     RecyclerAdapter(ArrayList<String> arrayListTitle, ArrayList<String> arrayListDesc, ArrayList<Integer> arrayListGambar){
         this.arrayListTitle = arrayListTitle;
         this.arrayListDesc = arrayListDesc;
@@ -55,14 +55,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, final int position) {
-        //Memanggil Nilai/Value Pada View-View Yang Telah Dibuat pada Posisi Tertentu
-        final String title = arrayListTitle.get(position);//Mengambil data sesuai dengan posisi yang telah ditentukan
-        final String desc = arrayListDesc.get(position);//Mengambil data sesuai dengan posisi yang telah ditentukan
-        final Integer gambar = arrayListGambar.get(position);//Mengambil data sesuai dengan posisi yang telah ditentukan
-        holder.Title.setText(title);// Mengambil text sesuai posisi yang telah ditentukan
-        holder.Desc.setText(desc); // Mengambil text sesuai posisi yang telah ditentukan
-        holder.Gambar.setImageResource(gambar); // Mengambil gambar sesuai posisi yang telah ditentukan
-        //Membuat Aksi Saat List Ditekan
+       // mengambil value
+        final String title = arrayListTitle.get(position);//get data by position
+        final String desc = arrayListDesc.get(position);
+        final Integer gambar = arrayListGambar.get(position);
+        holder.Title.setText(title);
+        holder.Desc.setText(desc);
+        holder.Gambar.setImageResource(gambar);
+
         holder.itemList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
