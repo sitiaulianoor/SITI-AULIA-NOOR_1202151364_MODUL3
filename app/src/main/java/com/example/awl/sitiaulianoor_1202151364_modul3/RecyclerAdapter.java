@@ -67,11 +67,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DetailActivity.class);
-                String descs = "    In a vault deep inside Abbey Road Studios in London — protected by an unmarked, triple-locked, police-alarmed door — are something like 400 hours of unreleased Beatles recordings, starting from June 2, 1962 and ending with the very last tracks recorded for the <i>Let It Be album. The best of the best were released by Apple Records in the form of the 3-volume Anthology series.\n" +
-                        "        For more information, see the Beatles Time Capsule at www.rockument.com.\n" +
-                        "Love Me Do — An early version of the song, played a bit slower and with more of a blues feeling, and a cool bossa-nova beat in middle. Paul had to sing while John played harmonica — a first for the group. Pete Best played drums on this version.\n" +
+                String descs = "A farmer had three sons. They were all strong and young, but they never agreed with one another. They often quarreled among themselves. The farmer had given them a lot of advice, but they always turned a deaf ear. They disliked advice. The farmer felt very sad about it.\n" +
                         "\n" +
-                        "   She Loves You – Till There Was You – Twist and Shout — Live at the Princess Wales Theatre by Leicester Square in London, attended by the Queen. “Till There Was You” (by Meredith Wilson) is from the musical The Music Man and a hit for Peggy Lee in 1961. Before playing it, Paul said it was recorded by his favorite American group, “Sophie Tucker” (which got some laughs). At the end, John tells the people in the cheaper seats to clap their hands, and the rest to “rattle your jewelry” and then announces “Twist and Shout” (a song by Bert Russell and Phil Medley that was first recorded in 1962 by the Isley Brothers). A film of the performance shows the Queen smiling at John’s remark.\n";
+                        "The farmer was thinking hard and then he got a good idea. He called all of his sons and ordered them, “Bring me a few sticks.” Then, the farmer tied the sticks into a bundle.\n" +
+                        "\n" +
+                        "“Each of you, break this bundle of sticks said!” said the farmer to his sons. They did what their father said, but they could not break it. Then, the farmer untied the sticks and gave each of his sons a stick. Each of them broke the stick easily in the glance of an eye.\n" +
+                        "\n" +
+                        "“There you are, my sons!”, said the farmer. “If you remain united, you are strong. But if you quarrel with one another, you will be broken one by one easily. Do you understand what I mean?” \n";
                 switch (position){
                     case 0:
                         intent.putExtra("title", arrayListTitle.get(position));
