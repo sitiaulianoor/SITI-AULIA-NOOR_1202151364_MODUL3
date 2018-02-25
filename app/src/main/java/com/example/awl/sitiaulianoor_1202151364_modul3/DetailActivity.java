@@ -87,7 +87,7 @@ public class DetailActivity extends AppCompatActivity {
                 case 6:
                     battery.setImageResource(R.drawable.ic_battery_full_black_24dp);
                     value.setText(Integer.toString(counts) + "L");
-                    Toast.makeText(this, "Battery Full", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Air Terisi Penuh", Toast.LENGTH_LONG).show();
                     break;
                 case 5:
                     battery.setImageResource(R.drawable.ic_battery_90_black_24dp);
@@ -108,7 +108,7 @@ public class DetailActivity extends AppCompatActivity {
                 case 1:
                     battery.setImageResource(R.drawable.ic_battery_20_black_24dp);
                     value.setText(Integer.toString(counts) + "L");
-                    Toast.makeText(this, "Battery Low", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Air Mau Habis", Toast.LENGTH_LONG).show();
                     break;
             }
         }
