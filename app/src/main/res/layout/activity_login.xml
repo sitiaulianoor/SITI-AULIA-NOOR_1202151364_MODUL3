@@ -30,10 +30,10 @@
         android:hint="@string/password"/>
 
     <Button
-        android:id="@+id/signin"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in"
+        android:text="@string/login"
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:textColor="#ffff"

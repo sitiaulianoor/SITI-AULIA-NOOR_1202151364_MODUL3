@@ -8,7 +8,7 @@
     android:gravity="center"
     android:layout_centerInParent="true"
     android:orientation="vertical"
-    android:background="#eeeeee"
+    android:background="#eceff1"
     tools:context="com.example.awl.sitiaulianoor_1202151364_modul3.SplashActivity">
 
 

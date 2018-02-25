@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
         edUsername = (EditText) findViewById(R.id.username);
         edPassword = (EditText) findViewById(R.id.password);
-        btnLogin = (Button) findViewById(R.id.signin);
+        btnLogin = (Button) findViewById(R.id.login);
         }
 
 
