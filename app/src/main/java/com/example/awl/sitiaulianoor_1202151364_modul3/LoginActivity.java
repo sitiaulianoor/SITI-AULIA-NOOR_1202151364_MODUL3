@@ -1,0 +1,34 @@
+package com.example.awl.sitiaulianoor_1202151364_modul3;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class LoginActivity extends AppCompatActivity {
+
+    EditText edUsername, edPassword;
+    Button btnLogin;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        edUsername = findViewById(R.id.username);
+        edPassword = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.signin);
+    }
+
+    public void showLogin(View view) {
+        if (edUsername.getText().toString().equalsIgnoreCase("EAD") && edPassword.getText().toString().equalsIgnoreCase("MOBILE")) {
+            Toast.makeText(this, "Welcome", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Incorrect Username or Password, Please try again", Toast.LENGTH_LONG).show();
+        }
+    }
+}
